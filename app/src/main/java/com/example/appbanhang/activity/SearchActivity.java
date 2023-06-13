@@ -92,6 +92,9 @@ public class SearchActivity extends AppCompatActivity {
                                 sanPhamList = loaiSpModel.getResult();
                                 adapterDt = new DienThoaiAdapter(getApplicationContext(), sanPhamList);
                                 recyclerView.setAdapter(adapterDt);
+                            }else{
+                                sanPhamList.clear();
+                                adapterDt.notifyDataSetChanged();
                             }
                         },
                         throwable -> {
