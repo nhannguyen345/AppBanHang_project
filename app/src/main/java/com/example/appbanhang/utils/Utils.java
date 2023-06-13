@@ -7,7 +7,7 @@ import com.example.appbanhang.model.KhachHang;
 import java.util.List;
 
 public class Utils {
-    public static final String BASE_URL="http://192.168.1.6/banhang/";
+    public static final String BASE_URL="http://192.168.1.6/banhang/client/";
     public static List<GioHang> manggiohang;
     public static KhachHang kh_current = new KhachHang();
     public static List<DonHang> mangdonhang;
