@@ -73,7 +73,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:gravity="center"
+                android:layout_gravity="center"
                 android:background="@drawable/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -99,19 +99,34 @@
         android:layout_height="0dp">
         <TextView
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="18sp"
+            android:layout_marginLeft="20dp"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:text="Mô tả chi tiết sản phẩm: "
+            android:shadowColor="#FCF3E2EF"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:text="Cấu hình chi tiết sản phẩm: "
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
             <TextView
                 android:id="@+id/txtmotachitiet"
-                android:layout_marginTop="5dp"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                android:shadowColor="#FCF3E2EF"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="2"
+                android:lineSpacingExtra="3dp"
+                android:layout_marginTop="3dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </ScrollView>

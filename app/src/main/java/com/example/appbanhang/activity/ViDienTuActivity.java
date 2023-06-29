@@ -132,7 +132,7 @@ public class ViDienTuActivity extends AppCompatActivity {
                                         if( khachHangModel.isSuccess()){
                                             Toast.makeText(getApplicationContext(), "Thanh toán thành công",Toast.LENGTH_SHORT).show();
                                             Utils.manggiohang.clear();
-                                            Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
+                                            Intent intent1 = new Intent(getApplicationContext(), LoadAppBanHangActivity.class);
                                             startActivity(intent1);
                                             finish();
                                         }else{

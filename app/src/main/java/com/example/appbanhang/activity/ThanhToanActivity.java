@@ -131,7 +131,7 @@ public class ThanhToanActivity extends AppCompatActivity {
                 // Kiểm tra xem radio button nào được chọn
                 if (selectedRadioButtonId == radioButton1.getId()) {
                     // Xử lý khi radio button 1 được chọn
-                    Intent intent = new Intent(getApplicationContext(), ViDienTuActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), LoadVDTActivity.class);
                     //Gửi loại ví điện tử
                     intent.putExtra("loaividt", 1);
                     //Gửi địa chỉ
@@ -144,7 +144,7 @@ public class ThanhToanActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else if (selectedRadioButtonId == radioButton2.getId()) {
                     // Xử lý khi radio button 2 được chọn
-                    Intent intent = new Intent(getApplicationContext(), ViDienTuActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), LoadVDTActivity.class);
                     //Gửi loại ví điện tử
                     intent.putExtra("loaividt", 2);
                     //Gửi địa chỉ

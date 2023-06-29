@@ -95,4 +95,10 @@ public interface ApiBanHang {
     Observable<KhachHangModel> resetpass(
             @Field("email") String email
     );
+
+    @POST("checksoluongtk.php")
+    @FormUrlEncoded
+    Observable<LoaiSpModel> checksoluongtk(
+            @Field("sp_id") int sp_id
+    );
 }

@@ -42,6 +42,8 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyViewHo
     ApiBanHang apiBanHang;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
 
+    int soluong_tk = 0;
+
     public GioHangAdapter(Context context, List<GioHang> gioHangList) {
         this.context = context;
         this.gioHangList = gioHangList;
@@ -52,6 +54,24 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyViewHo
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_giohang, parent, false);
         return new MyViewHolder(view);
+    }
+
+    private void KiemTrasltk(int sp_id){
+        compositeDisposable.add(apiBanHang.checksoluongtk(sp_id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        loaiSpModel  -> {
+                            if (loaiSpModel.isSuccess()){
+                                soluong_tk =loaiSpModel.getResult().get(0).getSoluong();
+                            } else{
+                                Toast.makeText(context, "Không lấy được số lượng!!", Toast.LENGTH_SHORT).show();
+                            }
+                        },
+                        throwable -> {
+                            Toast.makeText(context, throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                ));
     }
 
     private void UpdateDatabase(int khid, int masp, int sl, int flag) {
@@ -147,8 +167,13 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyViewHo
                 }else if (giatri == 2){
                     if(gioHangList.get(pos).getGh_soluong() < 11){
                         int soluongmoi = gioHangList.get(pos).getGh_soluong()+1;
-                        gioHangList.get(pos).setGh_soluong(soluongmoi);
-                        UpdateDatabase(idkh, gioHangList.get(pos).getSp_id(), soluongmoi, 2);
+                        KiemTrasltk(gioHangList.get(pos).getSp_id());
+                        if (soluong_tk - soluongmoi >= 0){
+                            gioHangList.get(pos).setGh_soluong(soluongmoi);
+                            UpdateDatabase(idkh, gioHangList.get(pos).getSp_id(), soluongmoi, 2);
+                        }else{
+                            Toast.makeText(context, "Số lượng đã vượt quá lượng sản phẩm hiện có!!", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }else if (giatri == 3){
                     AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());

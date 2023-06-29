@@ -2,7 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <solid android:color="#FFFFFF" /> <!-- Màu nền của đường viền -->
     <stroke
-        android:width="3dp"
-        android:color="#FF0000"/>
-    <corners android:radius="8dp" /> <!-- Độ cong các góc của đường viền -->
+        android:width="1dp"
+        android:color="#004D4949"/>
+    <corners android:radius="10dp" /> <!-- Độ cong các góc của đường viền -->
 </shape>

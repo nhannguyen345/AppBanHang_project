@@ -60,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
     GridViewSanPhamAdapter gridViewSanPhamAdapter;
     NotificationBadge badge;
     FrameLayout frameLayout;
-    ImageView imgsearch;
+    ImageView imgsearch, imageMess;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,9 +77,14 @@ public class MainActivity extends AppCompatActivity {
             ActionViewFlipper();
             getLoaiSanPham();
             getEventClick();
+            setIdAdmin();
         } else{
             Toast.makeText(getApplicationContext(), "khong co internet", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void setIdAdmin() {
+        Utils.ID_RECEIVED = "0";
     }
 
     private void getEventClick() {
@@ -99,6 +105,10 @@ public class MainActivity extends AppCompatActivity {
                         Intent laptop = new Intent(getApplicationContext(), DienThoaiActivity.class);
                         laptop.putExtra("loai", 0);
                         startActivity(laptop);
+                        break;
+                    case 3:
+                        Intent chat = new Intent(getApplicationContext(), ChatActivity.class);
+                        startActivity(chat);
                         break;
                     case 4:
                         Intent thongtin = new Intent(getApplicationContext(), UserInfoActivity.class);
@@ -167,6 +177,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void Anhxa(){
         imgsearch = findViewById(R.id.imgsearch);
+        imageMess = findViewById(R.id.image_mess);
         toolbar= findViewById(R.id.toobarmanhinhchinh);
         viewFipper = findViewById(R.id.viewlipper);
         gridviewmanhinhchinh = findViewById(R.id.grid_view);
@@ -211,6 +222,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                startActivity(intent );
+            }
+        });
+
+        imageMess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
                 startActivity(intent );
             }
         });

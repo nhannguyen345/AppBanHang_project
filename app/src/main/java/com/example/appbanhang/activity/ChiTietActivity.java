@@ -6,7 +6,9 @@ import androidx.appcompat.widget.Toolbar;
 import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -45,6 +47,8 @@ public class ChiTietActivity extends AppCompatActivity {
     ApiBanHang apiBanHang;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
 
+    int soluong_tk = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,15 +76,47 @@ public class ChiTietActivity extends AppCompatActivity {
             int soluong = Integer.parseInt(spinner.getSelectedItem().toString());
             for (int i =0; i < Utils.manggiohang.size(); i++){
                 if (Utils.manggiohang.get(i).getSp_id() == sanPham.getId()){
-                    Utils.manggiohang.get(i).setGh_soluong(soluong + Utils.manggiohang.get(i).getGh_soluong());
-
-                    long gia = Long.parseLong(String.format("%.0f",sanPham.getGiatien())) * Utils.manggiohang.get(i).getGh_soluong();
-                    Utils.manggiohang.get(i).setSp_giatien(Long.parseLong(String.format("%.0f",sanPham.getGiatien())));
                     flag = true;
+                    if (soluong_tk < (soluong + Utils.manggiohang.get(i).getGh_soluong())){
+                        Toast.makeText(this, "Xin lỗi, hiện tại số lượng của sản phẩm này chỉ còn: "+(soluong_tk - Utils.manggiohang.get(i).getGh_soluong())+". Vui lòng chọn lại!!", Toast.LENGTH_LONG).show();
+                    } else{
+                        Utils.manggiohang.get(i).setGh_soluong(soluong + Utils.manggiohang.get(i).getGh_soluong());
+                        long gia = Long.parseLong(String.format("%.0f",sanPham.getGiatien())) * Utils.manggiohang.get(i).getGh_soluong();
+                        Utils.manggiohang.get(i).setSp_giatien(Long.parseLong(String.format("%.0f",sanPham.getGiatien())));
 
-                    int masp = Utils.manggiohang.get(i).getSp_id();
-                    int sl = soluong + Utils.manggiohang.get(i).getGh_soluong();
-                    compositeDisposable.add(apiBanHang.giohang(khid, masp, sl, 2)
+                        int masp = Utils.manggiohang.get(i).getSp_id();
+                        int sl = soluong + Utils.manggiohang.get(i).getGh_soluong();
+                        compositeDisposable.add(apiBanHang.giohang(khid, masp, sl, 2)
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(
+                                        khachHangModel -> {
+                                            if (khachHangModel.isSuccess()){
+                                                Toast.makeText(this, "Thêm thành công", Toast.LENGTH_SHORT).show();
+                                            }
+                                        },
+                                        throwable -> {
+                                            Toast.makeText(getApplicationContext(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                ));
+                    }
+
+                }
+            }
+            if ( flag == false){
+                if (soluong_tk < soluong){
+                    Toast.makeText(this, "Xin lỗi, hiện tại số lượng của sản phẩm này chỉ còn: "+(soluong_tk)+". Vui lòng chọn lại!!", Toast.LENGTH_LONG).show();
+                } else{
+                    long gia = Long.parseLong(String.format("%.0f",sanPham.getGiatien())) * soluong;
+                    GioHang gioHang = new GioHang();
+                    gioHang.setSp_giatien(Long.parseLong(String.format("%.0f",sanPham.getGiatien())));
+                    gioHang.setGh_soluong(soluong);
+                    gioHang.setSp_id(sanPham.getId());
+                    gioHang.setSp_tensp(sanPham.getTensp());
+                    gioHang.setSp_linkhinhanh(sanPham.getLinkhinh());
+                    Utils.manggiohang.add(gioHang);
+
+                    compositeDisposable.add(apiBanHang.giohang(khid, sanPham.getId(), gioHang.getGh_soluong(), 1)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(
@@ -94,9 +130,14 @@ public class ChiTietActivity extends AppCompatActivity {
                                     }
                             ));
                 }
-            }
-            if ( flag == false){
 
+            }
+
+        }else{
+            int soluong = Integer.parseInt(spinner.getSelectedItem().toString());
+            if (soluong_tk < soluong){
+                Toast.makeText(this, "Xin lỗi, hiện tại số lượng của sản phẩm này chỉ còn: "+(soluong_tk)+". Vui lòng chọn lại!!", Toast.LENGTH_LONG).show();
+            } else{
                 long gia = Long.parseLong(String.format("%.0f",sanPham.getGiatien())) * soluong;
                 GioHang gioHang = new GioHang();
                 gioHang.setSp_giatien(Long.parseLong(String.format("%.0f",sanPham.getGiatien())));
@@ -120,32 +161,6 @@ public class ChiTietActivity extends AppCompatActivity {
                                 }
                         ));
             }
-
-        }else{
-            int soluong = Integer.parseInt(spinner.getSelectedItem().toString());
-
-            long gia = Long.parseLong(String.format("%.0f",sanPham.getGiatien())) * soluong;
-            GioHang gioHang = new GioHang();
-            gioHang.setSp_giatien(Long.parseLong(String.format("%.0f",sanPham.getGiatien())));
-            gioHang.setGh_soluong(soluong);
-            gioHang.setSp_id(sanPham.getId());
-            gioHang.setSp_tensp(sanPham.getTensp());
-            gioHang.setSp_linkhinhanh(sanPham.getLinkhinh());
-            Utils.manggiohang.add(gioHang);
-
-            compositeDisposable.add(apiBanHang.giohang(khid, sanPham.getId(), gioHang.getGh_soluong(), 1)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(
-                            khachHangModel -> {
-                                if (khachHangModel.isSuccess()){
-                                    Toast.makeText(this, "Thêm thành công", Toast.LENGTH_SHORT).show();
-                                }
-                            },
-                            throwable -> {
-                                Toast.makeText(getApplicationContext(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                    ));
         }
         int totalItem = 0;
         for (int i=0; i<Utils.manggiohang.size(); i++){
@@ -155,15 +170,41 @@ public class ChiTietActivity extends AppCompatActivity {
     }
 
     private void initData() {
+        //Lấy sản phẩm đã click
         sanPham = (SanPham) getIntent().getSerializableExtra("chitiet");
+        KiemTrasltk(sanPham.getId());
         tensp.setText(sanPham.getTensp());
         mota.setText(sanPham.getCauhinh());
         Glide.with(getApplicationContext()).load(sanPham.getLinkhinh()).into(imghinhanh);
+
+        //Chuyển đổi định dạng tiền
         DecimalFormat df = new DecimalFormat("###,###,###");
         String format = df.format(sanPham.getGiatien());
         giasp.setText("Giá tiền: "+ format +"Đ");
         Integer[] so = new Integer[]{1,2,3,4,5,6,7,8,9,10};
-        ArrayAdapter<Integer> adapterspin = new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, so);
+
+        //Tạo adapter
+        ArrayAdapter<Integer> adapterspin = new ArrayAdapter<Integer>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, so){
+            public View getView(int position, View convertView, ViewGroup parent) {
+
+                View v = super.getView(position, convertView, parent);
+
+                ((TextView) v).setTextSize(16);
+                ((TextView) v).setGravity(Gravity.CENTER);
+                return v;
+
+            }
+
+            public View getDropDownView(int position, View convertView,ViewGroup parent) {
+
+                View v = super.getDropDownView(position, convertView,parent);
+
+                ((TextView) v).setGravity(Gravity.CENTER);
+
+                return v;
+
+            }
+        };
         spinner.setAdapter(adapterspin);
     }
 
@@ -203,6 +244,24 @@ public class ChiTietActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void KiemTrasltk(int sp_id){
+        compositeDisposable.add(apiBanHang.checksoluongtk(sp_id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        loaiSpModel  -> {
+                            if (loaiSpModel.isSuccess()){
+                                soluong_tk =loaiSpModel.getResult().get(0).getSoluong();
+                            } else{
+                                Toast.makeText(this, "Không lấy được số lượng!!", Toast.LENGTH_SHORT).show();
+                            }
+                        },
+                        throwable -> {
+                            Toast.makeText(getApplicationContext(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                ));
     }
 
     @Override

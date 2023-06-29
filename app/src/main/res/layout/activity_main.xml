@@ -18,7 +18,7 @@
                 android:id="@+id/toobarmanhinhchinh"
                 app:title="Trang chính"
                 app:titleTextColor="@color/white"
-                android:background="#2FFF00"
+                android:background="#55D15B"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize">
                 <LinearLayout
@@ -30,6 +30,13 @@
                         android:id="@+id/imgsearch"
                         android:layout_marginRight="15dp"
                         android:src="@drawable/baseline_search_24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="?attr/actionBarSize"/>
+                    <ImageView
+                        android:id="@+id/image_mess"
+                        android:src="@drawable/ic_message"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="?attr/actionBarSize"/>
                     <FrameLayout
@@ -58,7 +65,7 @@
 
             </ViewFlipper>
             <LinearLayout
-                android:background="#3BE828"
+                android:background="#540F969C"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
