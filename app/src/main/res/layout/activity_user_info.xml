@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_app"
+    android:background="@drawable/bckground_ap"
     tools:context=".activity.UserInfoActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toobar"
@@ -18,36 +18,40 @@
         android:layout_marginTop="10dp"
         android:layout_gravity="center"
         android:layout_width="100dp"
-        android:src="@drawable/img_1"
+        android:src="@drawable/man"
         android:layout_height="100dp"/>
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:gravity="center"
         android:layout_margin="5dp"
+        android:background="#658"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="#9C27B0"
+        android:textColor="#EDE9ED"
         android:text="THÔNG TIN CÁ NHÂN"/>
 
     <ScrollView
         android:contentDescription="Thông tin người dùng"
         android:layout_width="match_parent"
-        android:layout_height="460dp">
+        android:layout_height="480dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <com.google.android.material.textfield.TextInputLayout
                 app:layout_constraintTop_toBottomOf="@id/txtdangnhap"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="14dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:elevation="8dp"
                 android:paddingTop="4dp"
                 android:textColorHint="#F44336"
+                app:hintTextAppearance="@style/MyHintTextAppearance"
                 android:id="@+id/line_a"
-                android:background="@color/white"
+                android:background="@drawable/textview_border"
+                app:hintEnabled="true"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -73,9 +77,10 @@
                 android:layout_marginRight="8dp"
                 android:paddingTop="4dp"
                 android:textColorHint="#F44336"
+                app:hintTextAppearance="@style/MyHintTextAppearance"
                 android:elevation="8dp"
                 android:id="@+id/line1"
-                android:background="@color/white"
+                android:background="@drawable/textview_border"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -100,9 +105,10 @@
                 android:layout_marginRight="8dp"
                 android:paddingTop="4dp"
                 android:textColorHint="#F44336"
+                app:hintTextAppearance="@style/MyHintTextAppearance"
                 android:elevation="8dp"
                 android:id="@+id/line_b"
-                android:background="@color/white"
+                android:background="@drawable/textview_border"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -127,9 +133,10 @@
                 android:layout_marginRight="8dp"
                 android:paddingTop="4dp"
                 android:textColorHint="#F44336"
+                app:hintTextAppearance="@style/MyHintTextAppearance"
                 android:elevation="8dp"
                 android:id="@+id/line2"
-                android:background="@color/white"
+                android:background="@drawable/textview_border"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -155,8 +162,9 @@
                 android:paddingTop="4dp"
                 android:elevation="8dp"
                 android:textColorHint="#F44336"
+                app:hintTextAppearance="@style/MyHintTextAppearance"
                 android:id="@+id/line3"
-                android:background="@color/white"
+                android:background="@drawable/textview_border"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -165,33 +173,34 @@
                     android:hint="Pass"
                     android:layout_marginLeft="4dp"
                     android:layout_marginRight="4dp"
+                    android:layout_marginBottom="4dp"
                     android:inputType="textPassword"
                     android:drawableLeft="@drawable/baseline_vpn_key_24"
                     android:drawablePadding="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-                <CheckBox
-                    android:id="@+id/ck_hide_show_pass"
-                    android:text="Hiện mật khẩu"
-                    android:background="@color/white"
-                    android:layout_marginStart="4dp"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"/>
 
             </com.google.android.material.textfield.TextInputLayout>
+            <CheckBox
+                android:id="@+id/ck_hide_show_pass"
+                android:text="Hiện mật khẩu"
+                android:background="@drawable/textview_border"
+                android:layout_marginStart="12dp"
+                android:layout_width="150dp"
+                android:layout_height="40dp"/>
 
         </LinearLayout>
 
     </ScrollView>
-
 
     <Button
         android:id="@+id/btnsavechange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|bottom"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="#E8CE27"
+        android:shadowRadius="@integer/material_motion_duration_long_1"
         android:text="Save Changes"
         android:textSize="18sp"
-        android:layout_marginTop="3dp"/>
+        android:layout_marginTop="10dp"/>
 </LinearLayout>

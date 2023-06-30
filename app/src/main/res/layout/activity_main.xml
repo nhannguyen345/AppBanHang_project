@@ -12,13 +12,13 @@
         android:layout_height="match_parent">
         <LinearLayout
             android:orientation="vertical"
+            android:background="@drawable/bckground_ap"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toobarmanhinhchinh"
                 app:title="Trang chính"
                 app:titleTextColor="@color/white"
-                android:background="#55D15B"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize">
                 <LinearLayout
@@ -36,7 +36,7 @@
                         android:id="@+id/image_mess"
                         android:src="@drawable/ic_message"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginRight="15dp"
                         android:layout_width="wrap_content"
                         android:layout_height="?attr/actionBarSize"/>
                     <FrameLayout
@@ -50,7 +50,7 @@
                             android:layout_width="28dp"
                             android:layout_height="28dp"/>
                         <ImageView
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="12dp"
                             android:src="@drawable/ic_cart_24"
                             android:layout_width="35dp"
                             android:layout_height="35dp"/>
@@ -65,7 +65,6 @@
 
             </ViewFlipper>
             <LinearLayout
-                android:background="#540F969C"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">

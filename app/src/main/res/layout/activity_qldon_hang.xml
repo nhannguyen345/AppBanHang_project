@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bckground_ap"
     tools:context=".activity.QLDonHangActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toobar"
         app:layout_constraintTop_toTopOf="parent"
         app:title="Quản lý đơn hàng"
+        android:background="#03A9F4"
         app:titleTextColor="@color/white"
-        android:background="#B552E629"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"/>
     <androidx.recyclerview.widget.RecyclerView

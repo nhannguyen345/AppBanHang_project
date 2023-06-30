@@ -90,7 +90,7 @@ public class DienThoaiActivity extends AppCompatActivity {
                 page = page + 1;
                 getData(page);
                 adapterDt.notifyDataSetChanged();
-                isLoading = false;
+                if (page == 3 && isLoading == true){} else isLoading = false;
             }
         }, 2000);
     }

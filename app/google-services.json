@@ -1,33 +1,128 @@
 {
   "project_info": {
-    "project_number": "143851358712",
-    "project_id": "appbanhang-7a8ad",
-    "storage_bucket": "appbanhang-7a8ad.appspot.com"
+    "project_number": "401430820810",
+    "project_id": "fir-storage-1-c3c14",
+    "storage_bucket": "fir-storage-1-c3c14.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:143851358712:android:7cba7bf21c111af669ae0d",
+        "mobilesdk_app_id": "1:401430820810:android:bfe26d4df7c46008720133",
         "android_client_info": {
           "package_name": "com.example.appbanhang"
         }
       },
       "oauth_client": [
         {
-          "client_id": "143851358712-drrksu0errpodqt6llunhtuunq1t6ls0.apps.googleusercontent.com",
+          "client_id": "401430820810-jo0alv4qv1592h7vccfc4413lum9ojpr.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCv8Yxn-JBRWSSfxzJWIlwofjtPE2P64gs"
+          "current_key": "AIzaSyAsg9ME88vRJ5vKoHLbgR-R5dLL5dNJK4M"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "143851358712-drrksu0errpodqt6llunhtuunq1t6ls0.apps.googleusercontent.com",
+              "client_id": "401430820810-jo0alv4qv1592h7vccfc4413lum9ojpr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:401430820810:android:57a71b1d42c67c1e720133",
+        "android_client_info": {
+          "package_name": "ngochaiisme.com.a11"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "401430820810-jo0alv4qv1592h7vccfc4413lum9ojpr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsg9ME88vRJ5vKoHLbgR-R5dLL5dNJK4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "401430820810-jo0alv4qv1592h7vccfc4413lum9ojpr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:401430820810:android:dfe85a501746aba4720133",
+        "android_client_info": {
+          "package_name": "ngochaiisme.com.a2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "401430820810-jo0alv4qv1592h7vccfc4413lum9ojpr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsg9ME88vRJ5vKoHLbgR-R5dLL5dNJK4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "401430820810-jo0alv4qv1592h7vccfc4413lum9ojpr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:401430820810:android:d74e1440f8dceff6720133",
+        "android_client_info": {
+          "package_name": "ngochaiisme.com.vn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "401430820810-982j3lku68n2lo691s800d24r60vacne.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ngochaiisme.com.vn",
+            "certificate_hash": "d1f785b61f246cd50e146062ccdb537c57cfb1cc"
+          }
+        },
+        {
+          "client_id": "401430820810-jo0alv4qv1592h7vccfc4413lum9ojpr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsg9ME88vRJ5vKoHLbgR-R5dLL5dNJK4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "401430820810-jo0alv4qv1592h7vccfc4413lum9ojpr.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

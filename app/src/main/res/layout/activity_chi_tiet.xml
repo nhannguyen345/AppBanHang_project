@@ -7,8 +7,9 @@
     tools:context=".activity.ChiTietActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toobar"
-        android:background="#3AD541"
+        android:background="#03A9F4"
         app:title="Chi tiết sản phẩm"
+        app:titleTextColor="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">

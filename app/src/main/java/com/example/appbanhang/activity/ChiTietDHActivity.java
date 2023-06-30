@@ -55,7 +55,7 @@ public class ChiTietDHActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        texttendh.setText("ĐƠN HÀNG " + (int)(vitridh+1));
+        texttendh.setText("CHI TIẾT ĐƠN HÀNG " + (int)(vitridh+1));
         name.setText("Tên: " + Utils.kh_current.getKh_hoten());
         phone.setText("Số điện thoại: " + Utils.kh_current.getKh_sdt());
         ngaydh.setText("Ngày đặt hàng: " + Utils.mangdonhang.get(vitridh).getDh_ngaydat());

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyHintTextAppearance" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">14sp</item> <!-- Chỉnh kích thước văn bản (text size) của hint -->
+        <!-- Các thuộc tính văn bản khác (nếu cần) -->
+        <item name="android:textColor">#F44336</item>
+    </style>
+</resources>

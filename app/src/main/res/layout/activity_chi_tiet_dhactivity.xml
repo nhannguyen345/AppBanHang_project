@@ -4,22 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#41BAE8D5"
+    android:background="@drawable/bckground_ap"
     tools:context=".activity.ChiTietDHActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toobar"
         app:layout_constraintTop_toTopOf="parent"
         app:title="Chi tiết đơn hàng"
+        android:background="#03A9F4"
         app:titleTextColor="@color/white"
-        android:background="#B552E629"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"/>
     <TextView
         android:id="@+id/texttendh"
         app:layout_constraintTop_toBottomOf="@id/toobar"
         android:layout_marginTop="5dp"
-        android:textColor="#EA4C4C"
-        android:textSize="18sp"
+        android:textColor="#F44336"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:padding="4dp"
         android:background="@drawable/textview_border"
@@ -30,109 +30,147 @@
         android:layout_height="wrap_content"/>
     <TextView
         android:id="@+id/tvttngdat"
-        android:textColor="#F3F2EB"
         android:layout_marginTop="5dp"
-        android:background="#FF5722"
-        android:textSize="16sp"
+        android:backgroundTint="#FFEB3B"
+        android:background="@drawable/back_inputtext"
+        android:textColor="#FF5722"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:gravity="center"
         android:text="Thông tin người đặt hàng"
         app:layout_constraintTop_toBottomOf="@+id/texttendh"
         android:layout_width="match_parent"
-        android:layout_height="25dp"/>
-    <TextView
-        android:id="@+id/name"
+        android:layout_height="30dp"/>
+    <com.google.android.material.textfield.TextInputLayout
         app:layout_constraintTop_toBottomOf="@id/tvttngdat"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:text="Họ và tên: Dũng Nguyễn"
-        android:textColor="#FAEC6A13"
-        android:textSize="18sp"
-        android:textStyle="italic|bold"
-        android:elevation="5dp"
-        android:background="@drawable/shadow_for_textview"
+        android:layout_marginTop="3dp"
+        android:id="@+id/line_a"
+        app:hintEnabled="false"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="25dp"/>
-    <TextView
-        android:id="@+id/phone"
-        app:layout_constraintTop_toBottomOf="@id/name"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:text="Số điện thoại: 09383737464"
-        android:textColor="#FAEC6A13"
-        android:textSize="18sp"
-        android:textStyle="italic|bold"
-        android:elevation="5dp"
-        android:background="@drawable/shadow_for_textview"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name"
+            android:hint="Name"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:inputType="text"
+            android:gravity="center"
+            android:background="@drawable/textview_border"
+            android:drawableLeft="@drawable/ic_baseline_perm_contact_24"
+            android:drawablePadding="5dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        app:layout_constraintTop_toBottomOf="@id/line_a"
+        android:layout_marginTop="3dp"
+        android:id="@+id/line_b"
+        app:hintEnabled="false"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="25dp"/>
-    <TextView
-        android:id="@+id/ngaydh"
-        app:layout_constraintTop_toBottomOf="@id/phone"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:text="Thời gian đặt hàng: 07/06/2023 14:00:00"
-        android:textColor="#FAEC6A13"
-        android:textSize="18sp"
-        android:textStyle="italic|bold"
-        android:elevation="5dp"
-        android:background="@drawable/shadow_for_textview"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phone"
+            android:hint="Phone"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:inputType="text"
+            android:gravity="center"
+            android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+            android:drawablePadding="5dp"
+            android:background="@drawable/textview_border"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        app:layout_constraintTop_toBottomOf="@id/line_b"
+        android:layout_marginTop="3dp"
+        android:id="@+id/line_c"
+        app:hintEnabled="false"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="25dp"/>
-    <TextView
-        android:id="@+id/diachi"
-        app:layout_constraintTop_toBottomOf="@id/ngaydh"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:text="Địa chỉ: Số 32, 449 Lê Văn Việt, Quận 9, TPHCM"
-        android:textColor="#FAEC6A13"
-        android:textSize="18sp"
-        android:textStyle="italic|bold"
-        android:elevation="5dp"
-        android:background="@drawable/shadow_for_textview"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ngaydh"
+            android:hint="Date"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:inputType="text"
+            android:gravity="center"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:drawableLeft="@drawable/baseline_access_time_filled_24"
+            android:drawablePadding="5dp"
+            android:background="@drawable/textview_border"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        app:layout_constraintTop_toBottomOf="@id/line_c"
+        android:layout_marginTop="3dp"
+        android:id="@+id/line_d"
+        app:hintEnabled="false"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/diachi"
+            android:hint="Address"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:inputType="text"
+            android:gravity="center"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:drawableLeft="@drawable/baseline_add_location_alt_24"
+            android:drawablePadding="5dp"
+            android:background="@drawable/textview_border"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
     <TextView
         android:id="@+id/tvsanphamdh"
-        android:textColor="#EDEDE7"
-        android:layout_marginTop="5dp"
-        android:background="#FF5722"
-        android:textSize="16sp"
+        android:layout_marginTop="3dp"
+        android:backgroundTint="#FFEB3B"
+        android:background="@drawable/back_inputtext"
+        android:textColor="#F44336"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:gravity="center"
         android:text="Danh sách sản phẩm"
-        app:layout_constraintTop_toBottomOf="@+id/diachi"
+        app:layout_constraintTop_toBottomOf="@+id/line_d"
         android:layout_width="match_parent"
-        android:layout_height="25dp"/>
+        android:layout_height="30dp"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_dhsp"
         app:layout_constraintTop_toBottomOf="@id/tvsanphamdh"
         app:layout_constraintBottom_toTopOf="@id/tvtongtien"
         android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
         android:layout_height="0dp"/>
     <TextView
         android:id="@+id/tvtongtien"
-        android:textColor="#FFEB3B"
         android:layout_marginTop="3dp"
         android:layout_marginBottom="5dp"
-        android:background="#FF5722"
-        android:textSize="16sp"
+        android:backgroundTint="#FFEB3B"
+        android:background="@drawable/back_inputtext"
+        android:textColor="#F44336"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:gravity="center"
         android:text="Tổng tiền: 74,000,000Đ"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="25dp"/>
+        android:layout_height="30dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

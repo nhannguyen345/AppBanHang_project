@@ -43,6 +43,14 @@ public class ChatActivity extends AppCompatActivity {
         initView();
         initControl();
         listenMess();
+        insertUser();
+    }
+
+    private void insertUser() {
+        HashMap<String, Object> user = new HashMap<>();
+        user.put("id", Utils.kh_current.getKh_id());
+        user.put("username", Utils.kh_current.getUsername());
+        db.collection("users").document(String.valueOf(Utils.kh_current.getKh_id())).set(user);
     }
 
     private void initControl() {
