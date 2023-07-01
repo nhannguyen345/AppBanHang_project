@@ -34,6 +34,12 @@
                 android:layout_marginStart="20dp"
                 android:drawableRight="@drawable/rsz_2zalologo123" />
 
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Thanh toán khi nhận hàng" />
 
     </RadioGroup>
 

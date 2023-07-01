@@ -33,7 +33,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class ThanhToanActivity extends AppCompatActivity {
 
@@ -121,6 +123,7 @@ public class ThanhToanActivity extends AppCompatActivity {
         RadioGroup radioGroup = dialogView.findViewById(R.id.radioGroup);
         RadioButton radioButton1 = dialogView.findViewById(R.id.radioButton1);
         RadioButton radioButton2 = dialogView.findViewById(R.id.radioButton2);
+        RadioButton radioButton3 = dialogView.findViewById(R.id.radioButton3);
 
         // Thiết lập hành động cho nút "OK" trong thông báo
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -155,6 +158,39 @@ public class ThanhToanActivity extends AppCompatActivity {
                     intent.putExtra("tongtien", tongtien);
 
                     startActivity(intent);
+                } else if (selectedRadioButtonId == radioButton3.getId()){
+                    //lấy mã khách hàng
+                    int khid = Utils.kh_current.getKh_id();
+                    //lấy tổng tiền
+                    long tongtien =Long.parseLong(tong_tien.replace(",", ""));
+                    //lấy ngày hiện tại
+                    Calendar calendar = Calendar.getInstance();
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+                    String currentDate = dateFormat.format(calendar.getTime());
+                    Log.d("kiem tra ngay", currentDate);
+                    //lấy địa chỉ
+                    String dc = address.getText().toString();
+
+                    //post
+                    compositeDisposable.add(apiBanHang.thanhtoan(khid, tongtien, currentDate, dc, new Gson().toJson(Utils.manggiohang))
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(
+                                    khachHangModel -> {
+                                        if( khachHangModel.isSuccess()){
+                                            Toast.makeText(getApplicationContext(), "thành công",Toast.LENGTH_SHORT).show();
+                                            Utils.manggiohang.clear();
+                                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }else{
+                                            Toast.makeText(getApplicationContext(), khachHangModel.getMessage(),Toast.LENGTH_SHORT).show();
+                                        }
+                                    },
+                                    throwable -> {
+                                        Toast.makeText(getApplicationContext(), throwable.getMessage(),Toast.LENGTH_SHORT).show();
+                                    }
+                            ));
                 }
             }
         });
