@@ -84,6 +84,7 @@ public class DangKiActivity extends AppCompatActivity {
                                         Utils.kh_current.setKh_email(str_email);
 
                                         Intent intent = new Intent(getApplicationContext(), DangNhapActivity.class);
+                                        Toast.makeText(getApplicationContext(), "Đăng kí thành công", Toast.LENGTH_LONG).show();
                                         startActivity(intent);
                                         finish();
                                     }else{
