@@ -47,6 +47,7 @@ public class ChiTietActivity extends AppCompatActivity {
     ApiBanHang apiBanHang;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
 
+    int idsp = 0;
     int soluong_tk = 0;
 
     @Override
@@ -70,6 +71,7 @@ public class ChiTietActivity extends AppCompatActivity {
 
 
     private void themGioHang() {
+        KiemTrasltk(idsp);
         int khid= Utils.kh_current.getKh_id();
         if (Utils.manggiohang.size() > 0){
             boolean flag = false;
@@ -173,6 +175,7 @@ public class ChiTietActivity extends AppCompatActivity {
         //Lấy sản phẩm đã click
         sanPham = (SanPham) getIntent().getSerializableExtra("chitiet");
         KiemTrasltk(sanPham.getId());
+        idsp = sanPham.getId();
         tensp.setText(sanPham.getTensp());
         mota.setText(sanPham.getCauhinh());
         Glide.with(getApplicationContext()).load(sanPham.getLinkhinh()).into(imghinhanh);
