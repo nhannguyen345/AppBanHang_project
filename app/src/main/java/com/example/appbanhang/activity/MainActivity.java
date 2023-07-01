@@ -73,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
         Anhxa();
         Actionbar();
         if (isConnected(this)){
-            Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_LONG).show();
             ActionViewFlipper();
             getLoaiSanPham();
             getEventClick();

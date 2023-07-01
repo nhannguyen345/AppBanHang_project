@@ -75,7 +75,7 @@ public class QLDonHangActivity extends AppCompatActivity {
                                 recyclerView.setAdapter(donHangAdapter);
                                 recyclerView.setLayoutManager(linearLayoutManager);
                             }else{
-                                Toast.makeText(getApplicationContext(), donHangModel.getMessage(),Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Không có đơn hàng nào!!!",Toast.LENGTH_SHORT).show();
                             }
                         },
                         throwable -> {

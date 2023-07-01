@@ -78,6 +78,7 @@ public class DangNhapActivity extends AppCompatActivity {
                                             Utils.kh_current = khachHangModel.getResult().get(0);
                                             Utils.manggiohang = khachHangModel.getResult1();
                                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                            Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_LONG).show();
                                             startActivity(intent);
                                             finish();
                                         } else{
