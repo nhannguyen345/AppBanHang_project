@@ -11,6 +11,8 @@ public class Utils {
     public static List<GioHang> manggiohang;
     public static KhachHang kh_current = new KhachHang();
     public static List<DonHang> mangdonhang;
+
+    public static int kttk = 0;
     public static String ID_RECEIVED;
     public static final String SENDID = "idsend";
     public static final String RECEIVEDID = "idreceived";

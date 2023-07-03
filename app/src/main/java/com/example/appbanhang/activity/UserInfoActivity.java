@@ -151,7 +151,7 @@ public class UserInfoActivity extends AppCompatActivity {
         btnsavechange = findViewById(R.id.btnsavechange);
         toolbar = findViewById(R.id.toobar);
 
-        text_name.setText(Utils.kh_current.getUsername().toString());
+        text_name.setText(Utils.kh_current.getKh_hoten().toString());
         text_email.setText(Utils.kh_current.getKh_email().toString());
         text_phone.setText(Utils.kh_current.getKh_sdt().toString());
         text_usernm.setText(Utils.kh_current.getUsername().toString());
